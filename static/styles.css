@@ -17,4 +17,7 @@ pre {
     background-color: #f4f4f4;
     padding: 10px;
     text-align: left;
+    max-width: 600px;
+    margin: auto;
+    overflow-x: auto;
 }
