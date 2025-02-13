@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Resume Analyzer</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <h1>Upload Your Resume</h1>
+    <form action="/" method="POST" enctype="multipart/form-data">
+        <input type="file" name="file" accept=".pdf" required>
+        <button type="submit">Analyze Resume</button>
+    </form>
+
+    {% if result %}
+    <h2>Extracted Information:</h2>
+    <pre>{{ result | tojson(indent=4) }}</pre>
+    {% elif error %}
+    <p style="color: red;">{{ error }}</p>
+    {% endif %}
+</body>
+</html>
